@@ -922,14 +922,17 @@ in inheritance.
     hash = { 'one' => 1, 'two' => 2, 'three' => 3 }
 
     # good
-    hash = { one: 1, two: 2, three: 3 }
+    hash = { :one => 1, :two => 2, :three => 3 }
     ```
 
 * Use multi-line hashes when it makes the code more readable, and use
   trailing commas to ensure that parameter changes don't cause
-  extraneous diff lines when the logic has not otherwise changed.
+  extraneous diff lines when the logic has not otherwise changed.  
+  
+* Multi-line hashes should be aligned on the hashbang (`=>`).
 
     ```ruby
+    # bad
     hash = {
       :protocol => 'https',
       :only_path => false,
@@ -938,8 +941,43 @@ in inheritance.
       :redirect => @redirect_url,
       :secret => @secret,
     }
+
+    # good
+    hash = {
+      :protocol   => 'https',
+      :only_path  => false,
+      :controller => :users,
+      :action     => :set_password,
+      :redirect   => @redirect_url,
+      :secret     => @secret,
+    }
     ```
 
+* If order doesn't not matter it is preferable that keys be sorted.
+    ```ruby
+    # bad
+    hash = {
+      :gamma => 3,
+      :beta => 2,
+      :delta => 4,
+      :alpha => 1,
+    }
+    
+    # good
+    hash = {
+      :alpha => 1,
+      :beta  => 2,
+      :delta => 4,
+      :gamma => 3,
+    }
+    
+    # good, required ordering - when you care about Hash#each_pair ordering, for example
+    hash = {
+      :subdomain => 'test_resort',
+      :primary   => 'www',
+      :wildcard  => '172.16.25.1',
+    }
+    ```
 ## Strings
 
 * Prefer string interpolation instead of string concatenation:
