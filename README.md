@@ -925,6 +925,17 @@ in inheritance.
     hash = { :one => 1, :two => 2, :three => 3 }
     ```
 
+* Always use the hashrocket syntax. Ruby 1.9 hash syntax should not be
+  used.
+
+    ```Ruby
+    # bad
+    hash = { one: 1, two: 2, three: 3 }
+    
+    # good
+    hash = { :one => 1, :two => 2, :three => 3 }
+    ```
+
 * Use multi-line hashes when it makes the code more readable, and use
   trailing commas to ensure that parameter changes don't cause
   extraneous diff lines when the logic has not otherwise changed.  
