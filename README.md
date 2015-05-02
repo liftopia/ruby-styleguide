@@ -293,25 +293,10 @@ all of the following criteria:
 * very short
 * obvious
 
-You may use whatever format you wish. In Ruby, two popular function
-documentation schemes are [TomDoc](http://tomdoc.org/) and
-[YARD](http://rubydoc.info/docs/yard/file/docs/GettingStarted.md). You can also
-just write things out concisely:
-
-```ruby
-# Return the fallback locales for the_locale.
-# If opts[:exclude_default] is set, the default locale, which is otherwise
-# always the last one in the returned list, will be excluded.
-#
-# For example:
-#   fallbacks_for(:"pt-BR")
-#     => [:"pt-BR", :pt, :en]
-#   fallbacks_for(:"pt-BR", :exclude_default => true)
-#     => [:"pt-BR", :pt]
-def fallbacks_for(the_locale, opts = {})
-  ...
-end
-```
+In Ruby, two popular function documentation schemes are [TomDoc](http://tomdoc.org/) and
+[YARD](http://rubydoc.info/docs/yard/file/docs/GettingStarted.md). You should favor using
+YARD over TomDoc. TomDoc is allowable since there are existing modules using it, but all
+new documentation should use YARD format.
 
 ### Block and inline comments
 
