@@ -976,6 +976,16 @@ in inheritance.
     ```
 ## Strings
 
+* Use single quotes for string literals that do not require interpolation
+
+    ```Ruby
+    # bad, uses double quotes
+    product_name = "My Awesome Product"
+    
+    # good, uses single quotes
+    product_name = 'My Awesome Product'
+    ```
+
 * Prefer string interpolation instead of string concatenation:
 
     ```Ruby
